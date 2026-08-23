@@ -1,6 +1,6 @@
-# Paintwell — Painting Company Website (English / Marathi)
+# Shree Sangmeshwar — Painting Company Website (English / Marathi)
 
-A responsive, animated React site inspired by the reference "Paintwell" layout —
+A responsive, animated React site inspired by the reference "Shree Sangmeshwar" layout —
 illustrated character, cream/orange/yellow palette, floating stat badges —
 with a language toggle: **English by default, Marathi as an option**.
 
