@@ -6,7 +6,7 @@ const cardColors = ["#F2703C", "#3B7DD8", "#E8368F"];
 
 const Work = () => {
   const { t } = useLanguage();
-  const testT = t.testimonials;
+  const testT = t.work;
   return (
     <>
       <section className="bg-cream py-24">

@@ -135,13 +135,13 @@ export const translations = {
       readMore: "Learn More",
     },
 
-    Work: {
-      eyebrow: "Testimonials",
-      title: "What Clients Say About Us",
+    work: {
+      eyebrow: "Our Works",
+      title: "Our Works",
       body: "Our clients' trust in our work is our real identity.",
       items: [
         {
-          name: "Sachin Pawar",
+          name: "Dinesh Jadhav",
           role: "Homeowner",
           quote:
             "The entire home painting job was done neatly and on time. The team was very disciplined.",
@@ -203,6 +203,7 @@ export const translations = {
         { href: "#top", label: "Home" },
         { href: "#about", label: "About" },
         { href: "#services", label: "Services" },
+        { href: "#work", label: "Work" },
         { href: "#blog", label: "Blog" },
       ],
       info: ["FAQ", "Customer Support", "Terms & Conditions", "Privacy Policy"],
@@ -218,7 +219,7 @@ export const translations = {
       { href: "#about", label: "आमच्याविषयी" },
       { href: "#services", label: "सेवा" },
       { href: "#blog", label: "ब्लॉग" },
-      { href: "#work", label: "आमची कामं " },
+      { href: "#work", label: "आमची कामं" },
       { href: "#contact", label: "संपर्क" },
     ],
     navCta: "मोफत सल्ला घ्या",
@@ -378,6 +379,32 @@ export const translations = {
         sentBody: "आम्ही एका कामकाजाच्या दिवसात तुमच्याशी संपर्क साधू.",
         sendAnother: "आणखी एक विनंती पाठवा",
       },
+    },
+
+    work: {
+      eyebrow: "आमची कामं",
+      title: "आमच्या ग्राहकांचे मनोगत",
+      body: "आमच्या कामावर ग्राहकांचा विश्वास हीच आमची खरी ओळख आहे.",
+      items: [
+        {
+          name: "सचिन पवार",
+          role: "गृहमालक",
+          quote:
+            "घराच्या संपूर्ण रंगकामाचे काम अतिशय व्यवस्थित आणि वेळेत पूर्ण झाले. टीम खूप शिस्तबद्ध होती.",
+        },
+        {
+          name: "अनिता कुलकर्णी",
+          role: "गृहमालक",
+          quote:
+            "रंगसंगतीबद्दल दिलेला सल्ला खूप उपयोगी ठरला. भिंती अगदी आम्हाला हव्या तशा दिसत आहेत.",
+        },
+        {
+          name: "राहुल देशमुख",
+          role: "मालमत्ता व्यवस्थापक",
+          quote:
+            "आमच्या इमारतीच्या बाहेरील रंगकामाचे काम व्यावसायिक पद्धतीने आणि कमी वेळेत पूर्ण झाले.",
+        },
+      ],
     },
 
     footer: {
