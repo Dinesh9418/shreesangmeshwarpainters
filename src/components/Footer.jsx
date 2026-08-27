@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Paintbrush, Facebook, Twitter, Instagram } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext.jsx'
 
@@ -9,10 +10,10 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <a href="#top" className="flex items-center gap-2 font-display text-lg font-bold">
+            <Link to="/#top" className="flex items-center gap-2 font-display text-lg font-bold">
               <Paintbrush className="h-5 w-5 text-orange" strokeWidth={2} />
               {t.brand}
-            </a>
+            </Link>
             <p className="mt-3 max-w-xs text-sm text-ink/60">{footerT.tagline}</p>
           </div>
 
@@ -22,7 +23,7 @@ export default function Footer() {
               <ul className="mt-3 space-y-2 text-ink/60">
                 {footerT.links.map((l) => (
                   <li key={l.href}>
-                    <a href={l.href} className="hover:text-orange">{l.label}</a>
+                    <Link to={`/${l.href}`} className="hover:text-orange">{l.label}</Link>
                   </li>
                 ))}
               </ul>

@@ -1,13 +1,14 @@
-import { motion } from "framer-motion";
-import { Home, Building2, Layers, Hammer } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext.jsx";
-import IllustrationBlob from "./IllustrationBlob.jsx";
+import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
+import { Home, Building2, Layers, Hammer } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext.jsx'
+import IllustrationBlob from './IllustrationBlob.jsx'
 
-const icons = [Home, Building2, Layers, Hammer];
+const icons = [Home, Building2, Layers, Hammer]
 
 export default function Services() {
-  const { t } = useLanguage();
-  const svcT = t.services;
+  const { t } = useLanguage()
+  const svcT = t.services
   return (
     <section id="services" className="bg-creamdeep py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
@@ -39,51 +40,45 @@ export default function Services() {
             ))}
           </div>
 
-          <IllustrationBlob pose="shout" size={300} dashes={["pink", "blue"]} />
+          <IllustrationBlob pose="shout" size={300} dashes={['pink', 'blue']} />
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-1">
             {svcT.items.slice(2, 4).map((s, i) => (
-              <ServiceCard
-                key={s.title}
-                item={s}
-                Icon={icons[i + 2]}
-                index={i + 2}
-              />
+              <ServiceCard key={s.title} item={s} Icon={icons[i + 2]} index={i + 2} />
             ))}
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 function ServiceCard({ item, Icon, index }) {
+  const navigate = useNavigate()
+
+  function handleClick() {
+    if (item.slug) navigate(`/services/${item.slug}`)
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
+      viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.45, delay: index * 0.08 }}
-      // className={`rounded-2xl p-6 ${
-      //   item.featured ? 'bg-orange text-white' : 'bg-white/70 text-ink'
-      // }`}
-
-      className={`group rounded-2xl p-6 transition-colors duration-300 ${
-        item.featured
-          ? "bg-orange text-white"
-          : "bg-white/70 text-ink hover:bg-orange hover:text-white"
-      }`}
+      onClick={handleClick}
+      role={item.slug ? 'button' : undefined}
+      tabIndex={item.slug ? 0 : undefined}
+      onKeyDown={(e) => {
+        if (item.slug && (e.key === 'Enter' || e.key === ' ')) handleClick()
+      }}
+      className="group cursor-pointer rounded-2xl bg-white/70 p-6 text-ink transition-colors duration-300 hover:bg-orange hover:text-white"
     >
-      <Icon
-        className={`h-8 w-8 ${item.featured ? "text-white" : "text-orange"}`}
-        strokeWidth={1.75}
-      />
+      <Icon className="h-8 w-8 text-orange transition-colors duration-300 group-hover:text-white" strokeWidth={1.75} />
       <h3 className="mt-4 font-display text-lg font-bold">{item.title}</h3>
-      <p
-        className={`mt-2 text-sm leading-relaxed ${item.featured ? "text-white/85" : "text-ink/65"}`}
-      >
+      <p className="mt-2 text-sm leading-relaxed text-ink/65 transition-colors duration-300 group-hover:text-white/85">
         {item.body}
       </p>
     </motion.div>
-  );
+  )
 }

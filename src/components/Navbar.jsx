@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Paintbrush, Languages } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext.jsx'
@@ -22,29 +23,29 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
-        <a href="#top" className="flex items-center gap-2 font-display text-lg font-bold text-ink">
+        <Link to="/#top" className="flex items-center gap-2 font-display text-lg font-bold text-ink">
           <Paintbrush className="h-5 w-5 text-orange" strokeWidth={2} />
           {t.brand}
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
           {t.nav.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="text-sm font-medium text-ink/75 transition hover:text-orange">
+              <Link to={`/${l.href}`} className="text-sm font-medium text-ink/75 transition hover:text-orange">
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
         <div className="hidden items-center gap-3 md:flex">
           <LangToggle lang={lang} onToggle={toggleLang} />
-          <a
-            href="#contact"
+          <Link
+            to="/#contact"
             className="rounded-full bg-orange px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-orange-dark"
           >
             {t.navCta}
-          </a>
+          </Link>
         </div>
 
         <div className="flex items-center gap-3 md:hidden">
@@ -71,23 +72,23 @@ export default function Navbar() {
             <ul className="flex flex-col gap-1 px-5 py-4">
               {t.nav.map((l) => (
                 <li key={l.href}>
-                  <a
-                    href={l.href}
+                  <Link
+                    to={`/${l.href}`}
                     onClick={() => setOpen(false)}
                     className="block rounded px-2 py-3 text-base font-medium text-ink/80 hover:bg-orange-light hover:text-orange"
                   >
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li className="pt-2">
-                <a
-                  href="#contact"
+                <Link
+                  to="/#contact"
                   onClick={() => setOpen(false)}
                   className="block rounded-full bg-orange px-5 py-3 text-center text-sm font-semibold text-white"
                 >
                   {t.navCta}
-                </a>
+                </Link>
               </li>
             </ul>
           </motion.div>
